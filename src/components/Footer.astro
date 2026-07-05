@@ -1,0 +1,84 @@
+---
+import { ACQUISITION_MAILTO, DISCLAIMER, SITE } from '../config/site';
+---
+
+<footer class="bg-white border-t border-slate-100">
+  <div class="max-w-5xl mx-auto px-6 py-16">
+    <!-- Sophisticated Domain Acquisition CTA -->
+    <div class="relative overflow-hidden rounded-3xl border border-amber-700/25 bg-gradient-to-br from-slate-900 via-slate-950 to-amber-900/20 p-8 sm:p-12 mb-12">
+      <div
+        class="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-amber-700/10 blur-3xl pointer-events-none"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-amber-600/10 blur-3xl pointer-events-none"
+        aria-hidden="true"
+      ></div>
+
+      <div class="relative z-10 grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-center">
+        <div>
+          <p class="text-xs uppercase tracking-[3px] text-amber-500 font-extrabold mb-4">Domain Available for Acquisition</p>
+          <h2 class="font-display text-3xl sm:text-4xl tracking-tight text-white mb-4">
+            sdldwntwn.com — The Definitive Downtown Scottsdale Address
+          </h2>
+          <p class="text-slate-400 max-w-xl leading-relaxed">
+            Positioned at the intersection of Old Town branding, Scottsdale tourism, and premium local SEO, this domain
+            is a rare strategic asset for real estate, events, dining, arts, and lifestyle ventures. Serious buyers may
+            inquire for pricing, transfer logistics, and escrow options.
+          </p>
+        </div>
+
+        <div class="rounded-2xl p-6 sm:p-8 border border-white/10 bg-slate-950/90 backdrop-blur-xl">
+          <p class="text-xs uppercase tracking-[2px] text-slate-500 font-semibold mb-2">Acquisition Contact</p>
+          <a
+            href={`mailto:${SITE.email}`}
+            class="block text-2xl sm:text-3xl font-display text-white hover:text-amber-500 transition-colors break-all"
+          >
+            {SITE.email}
+          </a>
+          <a
+            href={ACQUISITION_MAILTO}
+            class="mt-6 inline-flex w-full items-center justify-center gap-x-3 px-6 py-4 bg-gradient-to-r from-amber-700 to-amber-800 text-white font-extrabold rounded-2xl hover:brightness-110 transition-all"
+          >
+            <span>Inquire About Acquisition</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+          <p class="mt-4 text-[11px] text-slate-500 text-center tracking-wide">
+            Confidential inquiries &bull; Response within 24 hours
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cross promo -->
+    <div class="text-center mb-10">
+      <p class="text-sm text-slate-500">Part of the SDL family of premium Scottsdale &amp; Phoenix-focused domains</p>
+      <div class="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm">
+        <a href="https://sdl.contact" target="_blank" rel="noopener noreferrer" class="font-medium text-amber-700 hover:text-amber-800">
+          sdl.contact → Scottsdale Directory &amp; Vendors
+        </a>
+        <span class="text-slate-300 hidden md:inline">•</span>
+        <a href="https://sdl.hair" target="_blank" rel="noopener noreferrer" class="font-medium text-amber-700 hover:text-amber-800">
+          sdl.hair → Premium Hair Domain
+        </a>
+        <span class="text-slate-300 hidden md:inline">•</span>
+        <a href="https://phx.beauty" target="_blank" rel="noopener noreferrer" class="font-medium text-amber-700 hover:text-amber-800">
+          phx.beauty → Phoenix Beauty Domain
+        </a>
+      </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <p class="text-xs text-slate-500 leading-relaxed max-w-4xl mb-10">
+      {DISCLAIMER}
+    </p>
+
+    <!-- Bottom bar -->
+    <div class="pt-8 border-t border-slate-200 text-xs text-slate-400 flex flex-col md:flex-row gap-y-4 items-center justify-between">
+      <div>&copy; 2026 SDL Domains. All rights reserved. Scottsdale, Arizona.</div>
+      <div>Premium geo-specific domains &bull; Serious buyers only</div>
+    </div>
+  </div>
+</footer>

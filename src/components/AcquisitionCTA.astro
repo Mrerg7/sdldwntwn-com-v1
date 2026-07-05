@@ -1,0 +1,71 @@
+---
+import { ACQUISITION_MAILTO, SITE } from '../config/site';
+---
+
+<section id="acquire" class="bg-slate-900 py-16">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-10">
+      <div class="inline px-4 py-1 rounded-3xl bg-white/10 text-white text-xs tracking-[1.5px] font-medium mb-4">
+        SERIOUS INQUIRIES ONLY
+      </div>
+      <h2 class="text-white text-4xl md:text-5xl tracking-tighter font-semibold">Ready to own sdldwntwn.com?</h2>
+      <p class="mt-4 text-white/70 max-w-md mx-auto">
+        Premium geo-specific domains tied to high-value districts like Old Town Scottsdale rarely stay available.
+        Contact us for prompt, confidential discussion.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-3xl p-8 md:p-10 shadow-xl text-center">
+      <p class="text-xs font-semibold tracking-wider text-slate-500 mb-3">ACQUISITION CONTACT</p>
+      <a
+        href={`mailto:${SITE.email}`}
+        class="block text-2xl sm:text-3xl font-display text-slate-900 hover:text-amber-700 transition-colors break-all"
+      >
+        {SITE.email}
+      </a>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={ACQUISITION_MAILTO}
+          class="inline-flex items-center justify-center gap-x-3 px-10 py-4 bg-slate-900 hover:bg-black text-white font-semibold rounded-3xl text-base transition-all active:scale-[0.985]"
+        >
+          <span>Inquire About Acquisition</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+
+        <button
+          id="copy-email-btn"
+          type="button"
+          class="inline-flex items-center justify-center gap-x-3 px-8 py-4 border border-slate-200 hover:bg-slate-50 font-medium rounded-3xl text-base transition-all"
+        >
+          <span id="copy-btn-text">Copy Contact Email</span>
+        </button>
+      </div>
+
+      <p class="mt-6 text-xs text-slate-400">
+        We typically respond within 24–48 hours. All inquiries are confidential.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function copyEmail() {
+    const email = 'sales@desertrich.com';
+    navigator.clipboard.writeText(email).then(() => {
+      const btn = document.getElementById('copy-btn-text');
+      if (btn) {
+        const original = btn.textContent;
+        btn.textContent = 'Copied to clipboard!';
+        setTimeout(() => {
+          btn.textContent = original;
+        }, 2200);
+      }
+    }).catch(() => {
+      window.location.href = 'mailto:sales@desertrich.com';
+    });
+  }
+  document.getElementById('copy-email-btn')?.addEventListener('click', copyEmail);
+</script>
