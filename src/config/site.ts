@@ -21,6 +21,16 @@ export function cfImageUrl(imageId: string, variant = 'public'): string {
 
 export const OG_IMAGE = cfImageUrl(CF_IMAGES.heroImageId);
 
+export const PUBLISHED_DATE = '2026-07-05';
+
+/** Asking price for Product/Offer structured data (USD). */
+export const DOMAIN_PRICE = {
+  price: '55000.00',
+  minPrice: 35000,
+  maxPrice: 55000,
+  currency: 'USD',
+} as const;
+
 export const ACQUISITION_MAILTO = `mailto:${SITE.email}?subject=${encodeURIComponent('sdldwntwn.com Domain Acquisition Inquiry')}&body=${encodeURIComponent('Hello,\n\nI am interested in acquiring sdldwntwn.com.\n\nIntended use:\nBudget range:\n\nThank you.')}`;
 
 export const DISCLAIMER =

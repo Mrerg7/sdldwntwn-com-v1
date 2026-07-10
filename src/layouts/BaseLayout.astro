@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { SITE, OG_IMAGE, ACQUISITION_MAILTO } from '../config/site';
+import { SITE, OG_IMAGE, ACQUISITION_MAILTO, PUBLISHED_DATE, DOMAIN_PRICE } from '../config/site';
 
 interface Props {
   title?: string;
@@ -18,7 +18,6 @@ const {
 
 const pathname = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
 const canonicalURL = new URL(pathname, SITE.url);
-const publishedDate = '2026-07-05';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -38,8 +37,8 @@ const structuredData = {
       name: title,
       description,
       isPartOf: { '@id': `${SITE.url}#website` },
-      datePublished: publishedDate,
-      dateModified: publishedDate,
+      datePublished: PUBLISHED_DATE,
+      dateModified: PUBLISHED_DATE,
       inLanguage: 'en-US',
     },
     {
@@ -58,13 +57,42 @@ const structuredData = {
       offers: {
         '@type': 'Offer',
         url: ACQUISITION_MAILTO,
-        priceCurrency: 'USD',
         availability: 'https://schema.org/InStock',
+        price: DOMAIN_PRICE.price,
+        priceCurrency: DOMAIN_PRICE.currency,
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          price: DOMAIN_PRICE.price,
+          minPrice: DOMAIN_PRICE.minPrice,
+          maxPrice: DOMAIN_PRICE.maxPrice,
+          priceCurrency: DOMAIN_PRICE.currency,
+        },
         seller: {
           '@type': 'Organization',
           name: SITE.name,
           email: SITE.email,
         },
+      },
+      review: [
+        {
+          '@type': 'Review',
+          author: { '@type': 'Organization', name: 'SDL Domains' },
+          datePublished: PUBLISHED_DATE,
+          reviewBody:
+            'A short, brandable .com domain ideally suited for Downtown Scottsdale and Old Town real estate, tourism, events, and local lifestyle brands.',
+          reviewRating: {
+            '@type': 'Rating',
+            ratingValue: 5,
+            bestRating: 5,
+          },
+        },
+      ],
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: 5,
+        bestRating: 5,
+        reviewCount: 1,
+        ratingCount: 1,
       },
     },
     {
