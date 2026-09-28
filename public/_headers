@@ -1,0 +1,10 @@
+# Security headers for Cloudflare Pages/Workers static assets.
+# Apply via Cloudflare Transform Rules or `_headers` when hosting on Pages.
+# Workers assets-only deploys rely on Cloudflare edge HTTPS by default.
+
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload

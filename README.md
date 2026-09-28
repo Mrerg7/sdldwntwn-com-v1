@@ -18,25 +18,32 @@ Optimized landing and marketplace experience for **sdldwntwn.com**, a premium Do
 
 ## Stack
 
-- Next.js (App Router) + TypeScript
+- Next.js (App Router) + TypeScript — static export
 - Tailwind CSS v4
 - Radix UI primitives (Dialog, Slot)
 - `next-themes` for color mode
+- Cloudflare Workers Static Assets (`wrangler.toml` → `./out`)
 
 ## Run locally
 
 ```bash
 npm install
-npm run dev -- --port 43123 --hostname 127.0.0.1
+npm run dev
 ```
 
 Open [http://127.0.0.1:43123](http://127.0.0.1:43123).
 
-Production build:
+Production build & Cloudflare deploy:
 
 ```bash
 npm run build
-npm run start -- --port 43123 --hostname 127.0.0.1
+npm run deploy
+```
+
+Preview the static export locally:
+
+```bash
+npm run build && npm run start
 ```
 
 ## Environment (optional)

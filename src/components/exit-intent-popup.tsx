@@ -47,16 +47,15 @@ export function ExitIntentPopup() {
     e.preventDefault();
     setStatus("loading");
     try {
-      const res = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          source: "exit-intent",
-          offer: "buyer-alert",
-        }),
-      });
-      if (!res.ok) throw new Error("Failed");
+      localStorage.setItem(
+        "sdl-buyer-brief",
+        JSON.stringify({ email, at: Date.now() }),
+      );
+      window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(
+        `${SITE.domain} buyer brief request`,
+      )}&body=${encodeURIComponent(
+        `Please send the private buyer brief for ${SITE.domain}.\n\nEmail: ${email}`,
+      )}`;
       setStatus("done");
     } catch {
       setStatus("error");

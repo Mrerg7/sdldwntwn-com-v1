@@ -33,6 +33,8 @@
 - Display typography: Fraunces; UI: Manrope.
 
 ### Validation notes
-- Forms post to `/api/lead` (mock success path for local/staging).
+- Forms open a prefilled mailto to sales@desertrich.com (static Cloudflare assets deploy; no server API).
 - Analytics pixels activate when env IDs are set.
+- Static export output in `./out`; deploy with `npm run deploy` (Wrangler assets → sdldwntwn.com).
 - Submit updated sitemap to Google Search Console after production deploy: `https://sdldwntwn.com/sitemap.xml`.
+- Apply `public/_headers` security headers via Cloudflare Transform Rules if not already set at the edge.

@@ -23,22 +23,24 @@ export function AcquisitionForm({ defaultMode = "offer" }: { defaultMode?: Mode 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("loading");
-    try {
-      const res = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...form,
-          mode,
-          domain: SITE.domain,
-          source: "acquisition-form",
-        }),
-      });
-      if (!res.ok) throw new Error("Failed");
-      setStatus("done");
-    } catch {
-      setStatus("error");
-    }
+    const subject =
+      mode === "buy"
+        ? `${SITE.domain} — Buy Now`
+        : mode === "agent"
+          ? `${SITE.domain} — Contact Agent`
+          : `${SITE.domain} — Offer ${form.offer || ""}`;
+    const body = [
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      mode === "offer" ? `Offer: ${form.offer}` : null,
+      `Mode: ${mode}`,
+      "",
+      form.message || "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+    window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setStatus("done");
   }
 
   if (status === "done") {
