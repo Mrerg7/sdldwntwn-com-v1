@@ -46,6 +46,24 @@ Preview the static export locally:
 npm run build && npm run start
 ```
 
+### Workers Builds (Git-connected deploy)
+
+Cloudflare Worker: `sdldwntwn-com-v1`
+
+| Setting | Value |
+| --- | --- |
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+| Output directory | `./out` (via `wrangler.toml` `[assets]`) |
+
+If a build fails with **“The build token selected for this build has been deleted or rolled”**:
+
+1. Open **Workers & Pages → sdldwntwn-com-v1 → Settings → Builds**
+2. Under **API token**, choose **Create new token** (or select a valid existing user token)
+3. Save, then **Retry** the build
+
+That token is account/dashboard config — it is not stored in this repository.
+
 ## Environment (optional)
 
 | Variable | Purpose |
